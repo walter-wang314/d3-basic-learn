@@ -1,7 +1,6 @@
 const black = '#222222';
-const blue = '#00C0F2';
 const red = '#FF5C5C';
-const yellow = '#F8BF95';
+const yellow = '#F8BF00';
 
 const colors = {
     blacks: {
@@ -14,12 +13,8 @@ const colors = {
         60: '#3d3d3d',
         90: black,
     },
-    blues: {
-        10: '#F4F6F9',
-        20: '#def3f7',
-        30: blue,
-        40: '#00ABD7',
-    },
+    blue: '#007ce0',
+    navy: '#004175',
     reds: {
         30: red,
     },
@@ -27,7 +22,6 @@ const colors = {
         30: yellow,
     },
     black,
-    blue,
     red,
     yellow,
 };
@@ -37,6 +31,8 @@ colors.textColor = colors.black;
 const space = [0, 5, 10, 15, 20, 25, 30, 35, 40];
 
 const fontSizes = [12, 14, 16, 18];
+
+const breakpoints = ['600px', '900px', '1200px'];
 
 const fontWeights = {
     light: 200,
@@ -61,4 +57,5 @@ export default {
     fontWeights,
     fontFamilies,
     main,
+    breakpoints,
 };
