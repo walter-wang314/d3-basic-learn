@@ -2,22 +2,24 @@ import styled from 'styled-components';
 import { variant } from 'styled-system';
 
 const VariantButton = styled('button')(
-    {
-        fontFamily: 'inherit',
+  {
+    fontFamily: 'inherit',
+  },
+  variant({
+    prop: 'button-type',
+    variants: {
+      primary: {
+        color: 'red',
+        bg: 'green',
+        padding: 20,
+      },
+      secondary: {
+        color: 'black',
+        bg: 'blue',
+        padding: 10,
+      },
     },
-    variant({
-        prop: 'button-type',
-        variants: {
-            primary: {
-                color: 'red',
-                bg: 'green',
-            },
-            secondary: {
-                color: 'black',
-                bg: 'blue',
-            },
-        },
-    }),
+  }),
 );
 
 export default VariantButton;

@@ -12,3 +12,4 @@ eslint.xml
 npm-debug.log
 .env.local
 settings.js
+node_modules/asn1.js
