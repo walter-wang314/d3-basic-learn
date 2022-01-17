@@ -3,6 +3,7 @@ import Box from './components/Box';
 import Button from './components/Button';
 import VariantButton from './components/VariantButton';
 import BoxCss from './components/BoxCss';
+import BoxWithConfig from './components/BoxWithConfig';
 import './App.css';
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
       <br />
       <br />
       <br />
+      <BoxWithConfig>BoxWithConfig</BoxWithConfig>
       <br />
       <br />
       <br />
