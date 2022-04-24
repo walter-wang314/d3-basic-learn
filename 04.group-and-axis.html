@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04.group-and-axis</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+  <p>D3</p>
+</body>
+<script>
+  const WIDTH = 500;
+  const HEIGHT = 550;
+  const dataArray = [20, 40, 50, 80, 200];
+
+  // console.log(d3);
+
+  const widthScale = d3.scaleLinear()
+    .domain([0, 200])
+    .range([0, WIDTH]);
+
+  const colorScale = d3.scaleLinear()
+    .domain([0, 200])
+    .range(['yellow', 'blue']);
+
+  const axis = d3.axisLeft()
+    .scale(widthScale)
+
+  const svg = d3.select("body")
+    .append("svg")
+    .attr("width", WIDTH)
+    .attr("height", HEIGHT)
+    .attr("border-color", "red")
+    .style("border", "1px solid red")
+    .append('g')
+    .attr('transform', 'translate(0, 30)')
+
+  svg.selectAll('rect')
+    .data(dataArray)
+    .enter()
+    .append('rect')
+    .attr('width', (d) => widthScale(d))
+    .attr('height', 50)
+    .attr('y', (d, index) => index * 100)
+    .attr('fill', (d) => colorScale(d));
+
+  svg.append('g')
+    .attr('transform', 'translate(0, 400)')
+    .call(axis);
+</script>
+
+</html>
