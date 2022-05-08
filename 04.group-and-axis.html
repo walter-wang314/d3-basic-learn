@@ -21,7 +21,8 @@
 
   const widthScale = d3.scaleLinear()
     .domain([0, Math.max(...dataArray)])
-    .range([0, WIDTH]);
+    .range([0, WIDTH])
+    .nice();
 
   const colorScale = d3.scaleLinear()
     .domain([0, 200])
