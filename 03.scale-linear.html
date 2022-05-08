@@ -14,25 +14,24 @@
 </body>
 <script>
   const WIDTH = 500;
-  const HEIGHT = 500;
-  const dataArray = [20, 40, 50, 80, 200];
+  const HEIGHT = 1000;
+  const dataArray = [20, 40, 50, 80, 200, 500, 600, 700];
 
   // console.log(d3);
 
   const widthScale = d3.scaleLinear()
-    .domain([0, 200])
+    .domain([0, Math.max(...dataArray)])
     .range([0, WIDTH]);
 
   const colorScale = d3.scaleLinear()
-    .domain([0, 200])
+    .domain([0, Math.max(...dataArray)])
     .range(['yellow', 'blue']);
 
   const svg = d3.select("body")
     .append("svg")
     .attr("width", WIDTH)
     .attr("height", HEIGHT)
-    .attr("border-color", "red")
-    .style("border", "1px solid red");
+    .style("border", "5px solid red");
 
   svg.selectAll('rect')
     .data(dataArray)

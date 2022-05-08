@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06.basic-transition</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+  <p>D3</p>
+</body>
+<script>
+
+  const canvas = d3.selectAll('body')
+    .append('svg')
+    .attr('width', '400px')
+    .attr('height', '400px')
+    .style('border', '1px solid red');
+
+  const circle = canvas
+    .append('circle')
+    .attr('cx', 100)
+    .attr('cy', 100)
+    .attr('r', 50);
+
+  d3.selectAll("circle")
+    .transition()
+    .duration(1000)
+    .attr('cx', 300)
+    .style("fill", "red")
+    .transition()
+    .duration(1000)
+    .attr('cy', 300)
+    .style("fill", "gold")
+    .on('end', function () {
+      console.log('end');
+      // 注意这里只能够使用 select 而 不能够使用 select all
+      d3.select(this).style("fill", "blue");
+    });
+</script>
+
+</html>

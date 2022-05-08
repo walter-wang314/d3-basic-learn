@@ -14,21 +14,22 @@
 </body>
 <script>
   const WIDTH = 500;
-  const HEIGHT = 550;
-  const dataArray = [20, 40, 50, 80, 200];
+  const HEIGHT = 850;
+  const dataArray = [20, 40, 50, 80, 200, 600, 700];
 
   // console.log(d3);
 
   const widthScale = d3.scaleLinear()
-    .domain([0, 200])
+    .domain([0, Math.max(...dataArray)])
     .range([0, WIDTH]);
 
   const colorScale = d3.scaleLinear()
     .domain([0, 200])
     .range(['yellow', 'blue']);
 
-  const axis = d3.axisLeft()
-    .scale(widthScale)
+  const axis = d3.axisBottom()
+    .ticks(10)
+    .scale(widthScale);
 
   const svg = d3.select("body")
     .append("svg")
@@ -49,7 +50,7 @@
     .attr('fill', (d) => colorScale(d));
 
   svg.append('g')
-    .attr('transform', 'translate(0, 400)')
+    .attr('transform', 'translate(0, 700)')
     .call(axis);
 </script>
 

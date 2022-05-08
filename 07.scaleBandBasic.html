@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07.scaleBandBasic</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    svg {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body></body>
+<script>
+
+  const four = d3
+    .scaleBand()
+    .domain(["one", "two", "three", "four"])
+    .range([0, 100])
+    .padding(0.1);
+
+  console.log('four:', four('one'));
+
+  console.log('four.bandwidth:', four.bandwidth());
+
+  console.log('four("one"):', four("one"));
+
+  function bars(scale) {
+    const margin = 10,
+      width = 100,
+      height = 60,
+      chart = `<svg width=${width + 2 * margin} height=${height + 2 * margin}>
+        <g transform="translate(${margin}, ${margin})">
+
+        <rect width=${width} height="${height}"
+        fill="none" stroke="red" stroke-width="0.5" />
+
+        <rect x="${scale("one")}" width=${scale.bandwidth()} height="${height}"
+        fill="red"/>
+
+        <rect x="${scale("two")}" width=${scale.bandwidth()} height="${height}"
+        fill="green"/>
+
+        <rect x="${scale("three")}" width=${scale.bandwidth()} height="${height}"
+        fill="blue" />
+
+        <rect x="${scale("four")}" width=${scale.bandwidth()} height="${height}"
+        fill="#777" />
+
+        </g></svg>`;
+
+    return chart;
+  }
+
+  document.querySelector('body').innerHTML = bars(four);
+</script>
+
+</html>
