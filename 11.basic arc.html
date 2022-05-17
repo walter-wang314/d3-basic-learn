@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11.basic arc</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+</body>
+<script>
+
+  const WIDTH = 500;
+  const HEIGHT = 850;
+
+  const svg = d3.select("body")
+    .append("svg")
+    .attr("width", WIDTH)
+    .attr("height", HEIGHT)
+    .attr("border-color", "red")
+    .style("border", "1px solid red")
+    .append('g')
+    .attr('transform', 'translate(200, 300)')
+
+  const arc = d3.arc()
+    .innerRadius(80)
+    .outerRadius(100)
+    .startAngle(0)
+    .endAngle(Math.PI * 0.75);
+
+  svg.append("path")
+    .attr("d", arc)
+    .attr("stroke", "black")
+    .attr("fill", "green")
+
+</script>
+
+</html>
