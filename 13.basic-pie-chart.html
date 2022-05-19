@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13.basic-pie-chart</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+</body>
+<script>
+  const data = [10, 50, 80];
+  const r = 300;
+
+  const color = d3.scaleOrdinal().range(['red', 'blue', 'orange']);
+
+  const canvas = d3.select('body').append('svg').attr('width', 1000).attr('height', 1000);
+
+  const group = canvas.append('g').attr('transform', 'translate(300, 300)');
+
+  const arc = d3.arc().innerRadius(200).outterRadius(r);
+
+  const pie = d3.pie().value(d => d);
+
+  const arcs = group.selectAll('.arcClass').data(pie(data)).enter().append('g').attr('class', 'arc');
+
+  arcs.append('path').attr('d', arc).attr('fill', d => color(d.data))
+</script>
+
+</html>
