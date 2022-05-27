@@ -13,9 +13,9 @@
   <p>D3</p>
 </body>
 <script>
-  const WIDTH = 500;
+  const WIDTH = 800;
   const HEIGHT = 850;
-  const dataArray = [20, 40, 50, 80, 200, 600, 700];
+  const dataArray = [20, 40, 50, 80, 200, 600, 900];
 
   // console.log(d3);
 
@@ -29,7 +29,8 @@
     .range(['yellow', 'blue']);
 
   const axis = d3.axisBottom()
-    .ticks(10)
+    .tickValues([100, 200, 300, 500, 800])
+    // .ticks(20, 's')
     .scale(widthScale);
 
   const svg = d3.select("body")
